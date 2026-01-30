@@ -1,0 +1,319 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* IntrovertChatter Design System
+   Dark matte aesthetic - no gradients, no glow
+   Typography-first, calm motion
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    /* Professional Neutral Palette
+       Calm, serious, trustworthy - like GitHub/Linear/Notion dark mode
+       No gradients, no glow, no vibrant accents
+    */
+    
+    /* #0F1115 - charcoal black */
+    --background: 220 10% 7%;
+    /* #F2F4F8 - primary text */
+    --foreground: 220 20% 96%;
+
+    /* #171A21 - card background */
+    --card: 220 12% 11%;
+    --card-foreground: 220 20% 96%;
+
+    /* #171A21 - popover same as card */
+    --popover: 220 12% 11%;
+    --popover-foreground: 220 20% 96%;
+
+    /* #D1D5DB - soft gray for buttons/active elements */
+    --primary: 218 11% 82%;
+    --primary-foreground: 220 10% 7%;
+
+    /* #1F2430 - elevated surfaces */
+    --secondary: 222 15% 15%;
+    /* #B8C0CC - secondary text */
+    --secondary-foreground: 218 15% 76%;
+
+    /* #1F2430 - elevated surfaces for muted */
+    --muted: 222 15% 15%;
+    /* #B8C0CC - secondary text */
+    --muted-foreground: 218 15% 76%;
+
+    /* #1F2430 - elevated surfaces */
+    --accent: 222 15% 15%;
+    --accent-foreground: 220 20% 96%;
+
+    --destructive: 0 50% 50%;
+    --destructive-foreground: 220 20% 96%;
+
+    /* #2A2F3A - borders/dividers */
+    --border: 220 12% 20%;
+    --input: 220 12% 15%;
+    /* Neutral ring */
+    --ring: 218 11% 70%;
+
+    --radius: 0.75rem;
+
+    /* Mood room colors - muted neutral variants */
+    --room-overthinking: 220 10% 50%;
+    --room-anxiety: 220 10% 50%;
+    --room-stress: 220 10% 50%;
+    --room-lonely: 220 10% 50%;
+    --room-wins: 220 10% 55%;
+    --room-2am: 220 10% 45%;
+
+    /* Reaction colors - neutral gray */
+    --react-relate: 218 11% 70%;
+    --react-heard: 218 11% 65%;
+    --react-strength: 218 11% 60%;
+
+    /* Sanctuary - neutral */
+    --sanctuary: 218 11% 70%;
+
+    /* Anonymous identity colors - varied neutral grays */
+    --identity-1: 220 10% 65%;
+    --identity-2: 220 10% 55%;
+    --identity-3: 220 10% 70%;
+    --identity-4: 220 10% 50%;
+    --identity-5: 220 10% 60%;
+    --identity-6: 220 10% 75%;
+
+    /* Sidebar */
+    --sidebar-background: 220 10% 7%;
+    --sidebar-foreground: 218 15% 76%;
+    --sidebar-primary: 218 11% 82%;
+    --sidebar-primary-foreground: 220 10% 7%;
+    --sidebar-accent: 222 15% 15%;
+    --sidebar-accent-foreground: 220 20% 96%;
+    --sidebar-border: 220 12% 20%;
+    --sidebar-ring: 218 11% 70%;
+
+    /* Chart colors - neutral gray scale */
+    --chart-1: 220 10% 70%;
+    --chart-2: 220 10% 60%;
+    --chart-3: 220 10% 50%;
+    --chart-4: 220 10% 45%;
+    --chart-5: 220 10% 40%;
+  }
+
+  /* No light mode - this is a dark-only app */
+  .dark {
+    --background: 220 10% 7%;
+    --foreground: 220 20% 96%;
+    --card: 220 12% 11%;
+    --card-foreground: 220 20% 96%;
+    --popover: 220 12% 11%;
+    --popover-foreground: 220 20% 96%;
+    --primary: 218 11% 82%;
+    --primary-foreground: 220 10% 7%;
+    --secondary: 222 15% 15%;
+    --secondary-foreground: 218 15% 76%;
+    --muted: 222 15% 15%;
+    --muted-foreground: 218 15% 76%;
+    --accent: 222 15% 15%;
+    --accent-foreground: 220 20% 96%;
+    --destructive: 0 50% 50%;
+    --destructive-foreground: 220 20% 96%;
+    --border: 220 12% 20%;
+    --input: 220 12% 15%;
+    --ring: 218 11% 70%;
+    --sidebar-background: 220 10% 7%;
+    --sidebar-foreground: 218 15% 76%;
+    --sidebar-primary: 218 11% 82%;
+    --sidebar-primary-foreground: 220 10% 7%;
+    --sidebar-accent: 222 15% 15%;
+    --sidebar-accent-foreground: 220 20% 96%;
+    --sidebar-border: 220 12% 20%;
+    --sidebar-ring: 218 11% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply dark;
+    /* Prevent text inflation on mobile */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01";
+    /* Prevent horizontal overflow */
+    overflow-x: hidden;
+  }
+
+  /* Typography scale */
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-display font-semibold tracking-tight;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-display font-semibold tracking-tight;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-display font-medium;
+  }
+
+  h4 {
+    @apply text-lg font-display font-medium;
+  }
+
+  p {
+    @apply text-base leading-relaxed;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+}
+
+@layer utilities {
+  /* Matte card effect - flat, no blur */
+  .glass {
+    @apply bg-card;
+  }
+
+  /* Text glow removed - neutral design */
+  .text-glow {
+    /* No glow in neutral design */
+  }
+
+  /* Calm animations */
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.4s ease-out forwards;
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 3s ease-in-out infinite;
+  }
+
+  .animate-typing {
+    animation: typing 1.5s ease-in-out infinite;
+  }
+
+  /* Room color utilities */
+  .room-overthinking {
+    @apply bg-room-overthinking/20 text-room-overthinking border-room-overthinking/30;
+  }
+
+  .room-anxiety {
+    @apply bg-room-anxiety/20 text-room-anxiety border-room-anxiety/30;
+  }
+
+  .room-stress {
+    @apply bg-room-stress/20 text-room-stress border-room-stress/30;
+  }
+
+  .room-lonely {
+    @apply bg-room-lonely/20 text-room-lonely border-room-lonely/30;
+  }
+
+  .room-wins {
+    @apply bg-room-wins/20 text-room-wins border-room-wins/30;
+  }
+
+  .room-2am {
+    @apply bg-room-2am/20 text-room-2am border-room-2am/30;
+  }
+}
+
+@layer components {
+  /* Post card styling - tight, stable, no layout shift */
+  .post-card {
+    @apply bg-card rounded-xl p-5 border border-border/50 transition-colors duration-150;
+  }
+
+  .post-card:hover {
+    @apply border-border;
+  }
+
+  /* Identity shape base */
+  .identity-shape {
+    @apply w-10 h-10 rounded-lg flex items-center justify-center font-mono text-xs font-medium;
+  }
+
+  /* Sanctuary card */
+  .sanctuary-card {
+    @apply bg-card rounded-xl p-5 border border-sanctuary/20;
+  }
+
+  /* Matching animation container - no gradient */
+  .match-scanner {
+    @apply relative overflow-hidden rounded-2xl border border-border;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes scan {
+  0%, 100% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+}
