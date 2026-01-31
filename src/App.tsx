@@ -16,6 +16,7 @@ import SanctuaryPage from "./pages/SanctuaryPage";
 import PatternsPage from "./pages/PatternsPage";
 import ProfilePage from "./pages/ProfilePage";
 import NotFound from "./pages/NotFound";
+import { AuthCallback } from "./pages/AuthCallback";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/auth" element={<AuthPage />} />
+      <Route path="/auth/callback" element={<AuthCallback />} />
       
       {/* Protected Routes */}
       <Route path="/feed" element={<ProtectedRoute><FeedPage /></ProtectedRoute>} />
